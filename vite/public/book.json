@@ -1,0 +1,21 @@
+{
+    "books": [{
+            "name": "The web application hacker's handbook",
+            "pricePaperback": 22.09,
+            "sale": 11.9,
+            "priceKindle": 18.78,
+            "author": "Dafydd Stuttard and Marcus Pinto",
+            "published": "5 oct 2011",
+            "rated": "3.5"
+        },
+        {
+            "name": "The Tangled Web",
+            "pricePaperback": 30.80,
+            "sale": 8.69,
+            "priceKindle": 16.61,
+            "author": "Michal Zalewski",
+            "published": "6 dec 2011",
+            "rated": "5"
+        }
+    ]
+}
