@@ -1,3 +1,8 @@
+<?php 
+session_start(); 
+echo $_SESSION['userID'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,16 +12,23 @@
 	<link rel="icon" type="image/x-icon" href="images/favicon-32x32.webp">
 	<link rel="stylesheet" href="css/login.css">
 </head>
+
 <body>
 	<section class="wrapper">
 		<img src="images/UCL_horizontal.png" alt="UCL logo">
 		<form action="php/login-action.php" method="post">
 			<h2>Login</h2>
-			<input type="text" placeholder="E-mail" name="user" alt="">
-			<input type="password" placeholder="Kodeord" name="pass">
+			<input type="text" placeholder="E-mail" name="username" alt="">
+			<input type="password" placeholder="Kodeord" name="password">
 			<div class="input-align"><a href="">Glemt kodeord?</a></div>
-			<input type="submit" value="Login" name="">
+			<input type="submit" value="Login" name="login">
 		</form>
 	</div>
 </body>
 </html>
+
+<?php 
+if ($_SESSION['userID'] != null) {
+	header('location:index.php');
+}
+?>

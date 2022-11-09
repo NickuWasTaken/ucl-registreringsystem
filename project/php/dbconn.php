@@ -1,28 +1,17 @@
 <?php
-$servername = "mssql12.unoeuro.com";
+
+$servername = "mysql24.unoeuro.com";
 $username = "nicku_dk";
 $password = "aR49Bh3D5rHy";
-$my_db = "nicku_dk_db_registreringssytem";
+$my_db = "nicku_dk_db_registreringssystem";
 
-$serverName = "mssql12.unoeuro.com\\sqlexpress, 1433"; //serverName\instanceName
-$connectionInfo = array( "Database"=>"nicku_dk_db_registreringssytem", "UID"=>"nicku_dk", "PWD"=>"aR49Bh3D5rHy");
-$conn = sqlsrv_connect( $serverName, $connectionInfo);
+// Create connection
+$conn = new mysqli($servername, $username, $password, $my_db);
+$conn->set_charset('UTF-8');
 
-if( $conn ) {
-  echo "Connection established.<br />";
-} else {
-  echo "Connection could not be established.<br />";
-  die( print_r( sqlsrv_errors(), true));
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
 }
 
-/*
-$stmt = sqlsrv_query( $conn, "SELECT * FROM users");
-
-while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_NUMERIC) ) {
-  echo $row['fname']." ".$row['sname']." <br />";
-}
-
-
-sqlsrv_free_stmt( $stmt);
-*/
 ?>
