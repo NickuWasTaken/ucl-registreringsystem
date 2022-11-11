@@ -1,20 +1,22 @@
 #site-main-month {
-    .btn-default:nth-child(2) {
-        margin: 0 19px;
-    }
-    .btn-default {
+    .month-wrap label {
+        display: inline-block;
+        width: 148px;
+        padding: 15px;
+        transition: all 0.3s;
         background-color: $button;
-        width: 178px;
-        height: 55px;
         border: none;
         color: white;
-        gap: 30px;
-        p {
-            font-size: 20px;
-            margin: auto;
-        }
+        text-align: center;
+        margin-bottom: 5px;
+        border: none;
+        color: white;
+        font-size: 20px;
     }
-    .active {
+    .month-wrap input[type="radio"] {
+        display: none;
+    }
+    .month-wrap input[type="radio"]:checked+label {
         background-color: $button-contrast;
     }
 }
@@ -71,7 +73,7 @@
     }
     .media-wrap label {
         display: inline-block;
-        width: 158px;
+        width: 148px;
         padding: 15px;
         transition: all 0.3s;
         background-color: $button;
