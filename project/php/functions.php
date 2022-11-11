@@ -165,11 +165,11 @@ function deleteRegistration() {
   return $result;
 }
 
-function getAllGenders() {
+function getAllMedia() {
 
   global $conn;
   
-  $sql = "SELECT genderID, name FROM gender";
+  $sql = "SELECT mediaID, name FROM media";
 
   $result = $conn->query($sql);
   
