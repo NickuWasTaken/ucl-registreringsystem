@@ -1,0 +1,32 @@
+$background: #F2F8F8;
+$primary: #143943;
+$bg-login: #f8fafb;
+$cta-yellow: #fef486;
+$cta-red: #E8927c;
+$cta-blue: #4A737D;
+$button:#4A737D;
+$button-contrast: #4fb2ad;
+$hyperblue: #3366CC;
+$notification: #78d8ac;
+body {
+    background-color: $background;
+    #site-main {
+        width: calc(400px + 180px);
+        color: $primary;
+        margin-left: 180px;
+        height: calc(100vh - 90px);
+        h1 {
+            font-size: 3rem;
+            margin-top: 80px;
+            margin-bottom: 70px;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin: 25px 0 2px 0;
+        }
+    }
+}
+
+@import"_information-page.scss";
+@import"_registrering-page.scss";
+@import"_next-page.scss";

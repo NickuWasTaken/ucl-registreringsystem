@@ -1,0 +1,32 @@
+#site-main-next-page {
+    position: absolute;
+    bottom: 30px;
+    .flex-wrapper {
+        display: flex;
+    }
+    a {
+        color: $primary;
+        text-decoration: none;
+        margin: auto;
+    }
+    #page {
+        left: 110px;
+        position: relative;
+    }
+    #next {
+        left: 260px;
+        position: relative;
+        #arrow-right {
+            height: 50px;
+            width: 50px;
+            background-color: pink;
+        }
+    }
+    #back {
+        #arrow-left {
+            height: 50px;
+            width: 50px;
+            background-color: pink;
+        }
+    }
+}
