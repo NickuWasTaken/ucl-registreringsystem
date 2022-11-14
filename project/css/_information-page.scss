@@ -1,12 +1,18 @@
 #site-gender {
+    .flex {
+        display: flex;
+        .right {
+            margin-left: 290px;
+        }
+    }
     .gender-wrap label {
         display: inline-block;
-        width: 30px;
+        width: 40px;
         padding: 75px;
         transition: all 0.3s;
         background-color: $primary;
         border: none;
-        color: pink;
+        color: white;
         text-align: center;
     }
     .gender-wrap input[type="radio"] {
@@ -14,5 +20,55 @@
     }
     .gender-wrap input[type="radio"]:checked+label {
         background-color: $button-contrast;
+    }
+    .wrap {
+        display: flex;
+        .seperator {
+            width: 330px;
+        }
+        .status-wrap {
+            .status-wrap label {
+                display: inline-block;
+                width: 200px;
+                padding: 15px;
+                transition: all 0.3s;
+                background-color: $button;
+                border: none;
+                color: white;
+                text-align: center;
+                margin-bottom: 5px;
+                border: none;
+                color: white;
+                font-size: 20px;
+            }
+            .status-wrap input[type="radio"] {
+                display: none;
+            }
+            .status-wrap input[type="radio"]:checked+label {
+                background-color: $button-contrast;
+            }
+        }
+        .nationality-wrap {
+            .nationality-wrap label {
+                display: inline-block;
+                width: 200px;
+                padding: 15px;
+                transition: all 0.3s;
+                background-color: $button;
+                border: none;
+                color: white;
+                text-align: center;
+                margin-bottom: 5px;
+                border: none;
+                color: white;
+                font-size: 20px;
+            }
+            .nationality-wrap input[type="radio"] {
+                display: none;
+            }
+            .nationality-wrap input[type="radio"]:checked+label {
+                background-color: $button-contrast;
+            }
+        }
     }
 }
