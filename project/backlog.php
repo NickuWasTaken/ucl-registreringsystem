@@ -9,12 +9,8 @@
     
 </head>
 <body>
-    <section id="head">
-
-
-    </section>
-
-    <section id="content">
+    
+<section id="content">
         <div class="heading">
             <h1>Seneste redigering</h1>
         </div>
@@ -26,20 +22,25 @@
                     <p>lenght</p>
                     <p>subject</p>
                 </div>
+            </div>
 
+            <div class="column">
                 <div class="i-registration">
                     <i></i>
                 </div>
-                
-                <div class="boxes">
-                    <div class="b-box">
-                        <p></p>
-                    </div>
-                    <div class="r-box">
-                        <img src="" alt="">
-                    </div>
-                </div>
             </div>
+
+            <div class="column">
+                <div class="rewrite">
+                    <img src="images/rewrite.png" alt="">  
+                </div>  
+            </div>  
+
+            <div class="column">
+                <div class="delete">
+                    <img src="images/delete.png" alt=""> 
+                </div>  
+            </div>  
         </div>
 
         <div class="row">
@@ -49,20 +50,25 @@
                     <p>lenght</p>
                     <p>subject</p>
                 </div>
+            </div>
 
+            <div class="column">
                 <div class="i-registration">
                     <i></i>
                 </div>
-                
-                <div class="boxes">
-                    <div class="b-box">
-                        <p></p>
-                    </div>
-                    <div class="r-box">
-                        <img src="" alt="">
-                    </div>
-                </div>
             </div>
+
+            <div class="column">
+                <div class="rewrite">
+                    <img src="images/rewrite.png" alt="">  
+                </div>  
+            </div>  
+
+            <div class="column">
+                <div class="delete">
+                    <img src="images/delete.png" alt=""> 
+                </div>  
+            </div>  
         </div>
 
         <div class="row">
@@ -72,20 +78,25 @@
                     <p>lenght</p>
                     <p>subject</p>
                 </div>
+            </div>
 
+            <div class="column">
                 <div class="i-registration">
                     <i></i>
                 </div>
-                
-                <div class="boxes">
-                    <div class="b-box">
-                        <p></p>
-                    </div>
-                    <div class="r-box">
-                        <img src="" alt="">
-                    </div>
-                </div>
             </div>
+
+            <div class="column">
+                <div class="rewrite">
+                    <img src="images/rewrite.png" alt="">  
+                </div>  
+            </div>  
+
+            <div class="column">
+                <div class="delete">
+                    <img src="images/delete.png" alt=""> 
+                </div>  
+            </div>  
         </div>
 
         <div class="row">
@@ -95,20 +106,25 @@
                     <p>lenght</p>
                     <p>subject</p>
                 </div>
+            </div>
 
+            <div class="column">
                 <div class="i-registration">
                     <i></i>
                 </div>
-                
-                <div class="boxes">
-                    <div class="b-box">
-                        <p></p>
-                    </div>
-                    <div class="r-box">
-                        <img src="" alt="">
-                    </div>
-                </div>
             </div>
+
+            <div class="column">
+                <div class="rewrite">
+                    <img src="images/rewrite.png" alt="">  
+                </div>  
+            </div>  
+
+            <div class="column">
+                <div class="delete">
+                    <img src="images/delete.png" alt=""> 
+                </div>  
+            </div>  
         </div>
 
         <div class="row">
@@ -118,20 +134,25 @@
                     <p>lenght</p>
                     <p>subject</p>
                 </div>
+            </div>
 
+            <div class="column">
                 <div class="i-registration">
                     <i></i>
                 </div>
-                
-                <div class="boxes">
-                    <div class="b-box">
-                        <p></p>
-                    </div>
-                    <div class="r-box">
-                        <img src="" alt="">
-                    </div>
-                </div>
             </div>
+
+            <div class="column">
+                <div class="rewrite">
+                    <img src="images/rewrite.png" alt="">  
+                </div>  
+            </div>  
+
+            <div class="column">
+                <div class="delete">
+                    <img src="images/delete.png" alt=""> 
+                </div>  
+            </div>  
         </div>
 
         <div class="row">
@@ -141,24 +162,28 @@
                     <p>lenght</p>
                     <p>subject</p>
                 </div>
+            </div>
 
+            <div class="column">
                 <div class="i-registration">
                     <i></i>
                 </div>
-                
-                <div class="boxes">
-                    <div class="b-box">
-                        <p></p>
-                    </div>
-                    <div class="r-box">
-                        <img src="" alt="">
-                    </div>
-                </div>
             </div>
+
+            <div class="column">
+                <div class="rewrite">
+                    <img src="images/rewrite.png" alt="">  
+                </div>  
+            </div>  
+
+            <div class="column">
+                <div class="delete">
+                    <img src="images/delete.png" alt=""> 
+                </div>  
+            </div>  
         </div>
 
-
-
+    
     </section>
 </body>
 </html>
