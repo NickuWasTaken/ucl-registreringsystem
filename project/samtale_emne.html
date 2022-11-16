@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Vite App</title>
 </head>
@@ -14,25 +15,25 @@
         <h1 class="topic">Samtaleemner</h1>
         <h3>Vælg et eller flere samtaleemner</h3>
         <h2>Studie</h2>
-        <form action="">
+        <form id="topics" action="">
             <div class="topic-wrap">
                 <input type="checkbox" id="topic1" name="topic">
-                <label for="topic1">topic1</label>
+                <label for="topic1">Ophør</label>
 
                 <input type="checkbox" id="topic2" name="topic">
-                <label for="topic2">topic2</label>
+                <label for="topic2">Optagelse</label>
 
                 <input type="checkbox" id="topic3" name="topic">
-                <label for="topic3">topic3</label>
+                <label for="topic3">Barsel</label>
 
                 <input type="checkbox" id="topic4" name="topic">
-                <label for="topic4">topic4</label>
+                <label for="topic4">Merit</label>
 
                 <input type="checkbox" id="topic5" name="topic">
-                <label for="topic5">topic5</label>
+                <label for="topic5">Overflytning</label>
 
                 <input type="checkbox" id="topic6" name="topic">
-                <label for="topic6">topic6</label>
+                <label for="topic6">Personlige forhold</label>
             </div>
             <h2>Personligt</h2>
             <div class="topic-wrap2">
@@ -78,23 +79,26 @@
 
         </form>
 
-        <div id="site-main-next-page">
-            <div class="flex-wrapper">
-                <div id="back" class="flex-wrapper">
-                    <div id="arrow-left"></div>
-                    <a href="#">Forrige side</a>
-
-                </div>
-                <p id="page">Side 2 af 2</p>
-                <div id="next" class="flex-wrapper">
-                    <a href="#">Næste side</a>
-
-                    <div id="arrow-right"></div>
-                </div>
+        <div id="site-main-next-page"> <!-- Rettet -->
+            <div class="flex-wrapper flex">
+                <a href="javascript:history.back()">
+                    <div id="back" class="flex-wrapper">
+                        <div id="arrow-left"></div>
+                        <p>Forrige side</p>
+                    </div>
+                </a>
+                
+                <p id="page">Side 3 af 3</p>
+                <a href="#">
+                    <div id="next" class="flex-wrapper">
+                        <p>Næste side</p>
+                        <div id="arrow-right"></div>
+                    </div>
+                </a>
             </div>
         </div>
 
         <script type="module" src="/main.js"></script>
-</body>
+    </body>
 
-</html>
+    </html>
