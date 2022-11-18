@@ -63,7 +63,7 @@ function getRegistrationsForUser(){
   return $result;
 }
 
-function getTopicsOfCategory() {
+function getTopicsOfCategory($category) {
 
   global $conn;
   
@@ -90,13 +90,14 @@ function getAllUsers() {
   return $result;
 }
 
-function getDepartmentForUser() {
+function getDepartmentForUser($userID) {
 
   global $conn;
   
   $sql = "SELECT department.departmentID, department.name FROM department 
   INNER JOIN users_has_department ON department.departmentID = users_has_department.departmentID 
-  INNER JOIN users ON users_has_department.userID = users.userID;";
+  INNER JOIN users ON users_has_department.userID = users.userID
+  WHERE users_has_department.userID = '".$userID."' AND users_has_department.userID = users.userID ";
 
   $result = $conn->query($sql);
   
@@ -129,27 +130,42 @@ function updateUser() {
   return $result;
 }
 
-function createRegistration() {
+function createRegistration($userID, $departmentID, $educationID, $month, $resident, $is_student, $duration) {
 
   global $conn;
+  $monthName = date('F', strtotime("$month month"));
   
-  $sql = "INSERT INTO registration (registrationID, userID, departmentID, educationID, conversation_time, registration_time, resident, is_student) 
-  VALUES (NULL, $userID, $departmentID, $educationID, CURRENT_DATE(), NULL, $resident, $is_student)";
+  $sql = "INSERT INTO registration (userID, departmentID, educationID, conversation_time, registration_time, resident, is_student) VALUES ($userID, $departmentID, $educationID, '$monthName', CURRENT_DATE(), $resident, $is_student)";
 
   $result = $conn->query($sql);
   
-  return $result;
+  return $sql;
 }
+
+
+function getLastRegistration($userID) {
+ global $conn;
+
+ $sql = "SELECT registration.registrationID  FROM registration
+ WHERE userID = $userID
+ ORDER BY registrationID desc
+ LIMIT 0, 1";
+
+ $result = $conn->query($sql);
+
+ return $result;
+}
+
 
 function getAllCategories() {
 
-  global $conn;
-  
-  $sql = "SELECT name, categoryID FROM topic_categories";
+ global $conn;
 
-  $result = $conn->query($sql);
-  
-  return $result;
+ $sql = "SELECT name, categoryID FROM topic_categories";
+
+ $result = $conn->query($sql);
+
+ return $result;
 }
 
 
@@ -180,12 +196,44 @@ function getAllGenders() {
 
   global $conn;
   
-  $sql = "SELECT genderID, name FROM gender";
+  $sql = "SELECT genderID, name, thumb FROM gender";
 
   $result = $conn->query($sql);
   
   return $result;
 }
 
+
+function createRegistrationTopic($registrationID, $topicID) {
+  global $conn;
+  
+  $sql = "INSERT INTO `registration_conversation_topic` (`registrationID`, `topicID`) VALUES ($registrationID, $topicID)";
+
+  $result = $conn->query($sql);
+  
+  return $result;
+
+}
+
+function createRegistrationGender($registrationID, $genderID) {
+  global $conn;
+  
+  $sql = " INSERT INTO `registration_gender` (`registrationID`, `genderID`) VALUES ($registrationID, $genderID)";
+
+  $result = $conn->query($sql);
+  
+  return $result;
+}
+
+function createRegistrationMedia($registrationID, $mediaID) {
+  global $conn;
+  
+  $sql = "INSERT INTO `registration_media` (`registrationID`, `mediaID`) VALUES ($registrationID, $mediaID)";
+
+  $result = $conn->query($sql);
+  
+  return $result;
+  
+}
 
 ?>
