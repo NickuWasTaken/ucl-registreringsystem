@@ -8,19 +8,23 @@ if (!isset($_POST['username'])) {
 }
 
 
-include 'DBconn.php';
+include 'dbconn.php';
 
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-$query= "SELECT userID, username, password FROM users WHERE username='".$username."'";
+$query= "SELECT userID, username, password, auth, fname, sname FROM users WHERE username='".$username."'";
 $result = $conn->query($query);
 $row = $result->fetch_object();
 
 
 if (isset($_POST['login'])){
+
 	if ($username == $row->username && $password == $row->password){
 		$_SESSION['userID'] = $row->userID;
+		$_SESSION['fname'] = $row->fname;
+		$_SESSION['sname'] = $row->sname;
+		$_SESSION['auth'] = $row->auth;
 		header('location:../index.php');
 	} else {
 		header('location:../login.php');

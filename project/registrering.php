@@ -37,7 +37,7 @@ if ($_SESSION['userID'] != null) {
 
                 </div>
                 <div id="site-main-education">
-                    <div class="flex-wrap flex"> <!-- rettet -->
+                    <div class="flex-wrap flex">
                         <div class="flex-wrap">
                             <h2>Studieretning</h2>
                             <input type="search" name="search" id="search-education">
@@ -50,7 +50,7 @@ if ($_SESSION['userID'] != null) {
                                 <?php 
                                 while ($result = mysqli_fetch_assoc($userEducations)) { ?>
                                     <input type="radio" id="education<?php echo $result['educationID'];?>" name="education" value="<?php echo $result['educationID'];?>">
-                                    <label for="education<?php echo $result['educationID'];?>"><?php echo $result['name'];?></label>
+                                    <label for="education<?php echo $result['educationID'];?>"><?php echo utf8_encode($result['name']);?></label>
                                 <?php }
                                 ?>
                             </div>
@@ -69,7 +69,7 @@ if ($_SESSION['userID'] != null) {
                             <select name="campus" class="dropdown">
                                 <?php 
                                 while ($result = mysqli_fetch_assoc($userDepartments)) { ?>
-                                    <option value="<?php echo $result['departmentID']; ?>"><?php echo $result['name'];?></option>
+                                    <option value="<?php echo $result['departmentID']; ?>"><?php echo utf8_encode($result['name']);?></option>
                                 <?php } ?>
                             </select>
                         </div>
@@ -88,7 +88,7 @@ if ($_SESSION['userID'] != null) {
                         <?php }?>
                     </div>
                 </div>
-                <a href="php/login-action.php">Log af</a>
+                
                 <div id="site-main-next-page"> <!-- Rettet -->
                     <div class="flex-wrapper flex">
                         <a style="opacity: 0.3; cursor: default;">

@@ -13,3 +13,8 @@ function swapFormLast(page) {
   document.getElementById(window).style["display"] = "none";
   document.getElementById(lastwindow).style["display"] = "block";
 }
+
+
+function disablePopUp(){
+  document.getElementById("popup-warning").style["display"] = "none";
+}

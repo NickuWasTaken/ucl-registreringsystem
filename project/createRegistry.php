@@ -4,6 +4,13 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
+
+if (!isset($_SESSION['userID'])) {
+	session_destroy();
+	header('location:../login.php');
+	die;
+}
+
 include 'php/functions.php';
 
 $departmentID = $_POST['campus'];
@@ -29,6 +36,8 @@ if (isset($_POST['registrer'])){
 
 	createRegistrationGender($lastEntryID['registrationID'], $gender);
 	createRegistrationMedia($lastEntryID['registrationID'], $media);
+
+	header('location:index.php?confirmed=1');
 
 } else {
 	header('location:index.php?warning=1');

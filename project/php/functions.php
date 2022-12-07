@@ -27,36 +27,24 @@ function getEducationsForUser($userID) {
   return $result;
 }
 
-
-function createUser($username, $password, $fname, $sname, $auth) {
-
-  $initials = substr($fname, 1, 2) + substr($sname, 1, 2);
+function getRegistrationsForUser($id,$page){
 
   global $conn;
   
-  $sql = "INSERT INTO `users` (, `username`, `password`, `created`, `updated`, `fname`, `sname`, `initials`, `auth`)
-  VALUES ('$username', `$password`, CURRENT_DATE(), NULL, '$fname', '$sname', '$initials', '$auth');";
+  $offset = $page*7;
 
-  $result = $conn->query($sql);
-  
-  return $result;
-}
-
-
-function getRegistrationsForUser(){
-
-  $initials = substr($fname, 1, 2) + substr($sname, 1, 2);
-
-  global $conn;
-  
-  $sql = "SELECT * FROM registration
+  $sql = "SELECT registration.registrationID,registration.conversation_time, registration.registration_time, registration_gender.genderID, gender.thumb FROM registration
   INNER JOIN users ON registration.userID = users.userID
   INNER JOIN registration_conversation_topic ON registration.registrationID = registration_conversation_topic.registrationID
   INNER JOIN conversation_topic ON registration_conversation_topic.topicID = conversation_topic.topicID
   INNER JOIN registration_media ON registration.registrationID = registration_media.registrationID
   INNER JOIN media ON registration_media.mediaID = media.mediaID
   INNER JOIN registration_gender ON registration.registrationID = registration_gender.registrationID
-  INNER JOIN gender ON registration_gender.genderID = gender.genderID";
+  INNER JOIN gender ON registration_gender.genderID = gender.genderID
+  WHERE users.userID = $id
+  GROUP BY registration.registrationID
+  ORDER BY registration.registrationID DESC
+  LIMIT $offset, 7";
 
   $result = $conn->query($sql);
   
@@ -81,9 +69,25 @@ function getAllUsers() {
 
   global $conn;
   
-  $sql = "SELECT users.fname, users_has_department.departmentID, department.name FROM users 
+  $sql = "SELECT users.userID, users.fname, users.sname, department.name FROM users 
   INNER JOIN users_has_department ON users.userID = users_has_department.userID 
-  INNER JOIN department ON users_has_department.departmentID = department.departmentID";
+  INNER JOIN department ON users_has_department.departmentID = department.departmentID
+  GROUP BY users.userID";
+
+  $result = $conn->query($sql);
+  
+  return $result;
+}
+
+function getUser($id) {
+
+  global $conn;
+  
+  $sql = "SELECT users.userID, users.fname, users.sname, department.name FROM users 
+  INNER JOIN users_has_department ON users.userID = users_has_department.userID 
+  INNER JOIN department ON users_has_department.departmentID = department.departmentID
+  WHERE users.userID = $id
+  GROUP BY users.userID";
 
   $result = $conn->query($sql);
   
@@ -97,14 +101,28 @@ function getDepartmentForUser($userID) {
   $sql = "SELECT department.departmentID, department.name FROM department 
   INNER JOIN users_has_department ON department.departmentID = users_has_department.departmentID 
   INNER JOIN users ON users_has_department.userID = users.userID
-  WHERE users_has_department.userID = '".$userID."' AND users_has_department.userID = users.userID ";
+  WHERE users_has_department.userID = '".$userID."' AND users_has_department.userID = users.userID";
 
   $result = $conn->query($sql);
   
   return $result;
 }
 
-function deleteUser() {
+function createUser($fname, $sname, $username) {
+
+  global $conn;
+
+  $initials = substr($fname, 0, 2) . substr($sname, 0, 2);
+
+  
+  $sql = "INSERT INTO `users` (`username`, `password`, `created`, `fname`, `sname`, `initials`, `auth`) VALUES ('$username', NULL, CURRENT_TIME(), '$fname', '$sname', '$initials', '0')";
+
+  $result = $conn->query($sql);
+  
+  return $result;
+}
+
+function deleteUser($userID) {
 
   global $conn;
   
@@ -130,12 +148,48 @@ function updateUser() {
   return $result;
 }
 
+function getLatestUser() {
+
+  global $conn;
+  
+  $sql = "SELECT userID from users ORDER BY userID desc LIMIT 1";
+
+  $result = $conn->query($sql);
+  
+  return $result;
+}
+
+function createUserDepartment($userID, $departmentID) {
+
+  global $conn;
+  
+  $sql = "INSERT INTO users_has_department (userID, departmentID) VALUES ($userID, $departmentID)";
+
+  $result = $conn->query($sql);
+  
+  return $result;
+}
+
+function createUserEducations($userID, $educationID) {
+
+  global $conn;
+
+  $initials = substr($fname, 0, 2) + substr($sname, 0, 2);
+
+  
+  $sql = "INSERT INTO `users` (`username`, `password`, `created`, `fname`, `sname`, `initials`, `auth`) VALUES ('$username', NULL, CURRENT_TIME(), '$fname', '$sname', '$initials', '0')";
+
+  $result = $conn->query($sql);
+  
+  return $result;
+}
+
 function createRegistration($userID, $departmentID, $educationID, $month, $resident, $is_student, $duration) {
 
   global $conn;
   $monthName = date('F', strtotime("$month month"));
   
-  $sql = "INSERT INTO registration (userID, departmentID, educationID, conversation_time, registration_time, resident, is_student) VALUES ($userID, $departmentID, $educationID, '$monthName', CURRENT_DATE(), $resident, $is_student)";
+  $sql = "INSERT INTO registration (userID, departmentID, educationID, month, conversation_time, registration_time, resident, is_student) VALUES ($userID, $departmentID, $educationID, '$monthName', '$duration', CURRENT_TIME(), $resident, $is_student)";
 
   $result = $conn->query($sql);
   
@@ -170,7 +224,7 @@ function getAllCategories() {
 
 
 
-function deleteRegistration() {
+function deleteRegistration($registrationID) {
 
   global $conn;
   
@@ -235,5 +289,44 @@ function createRegistrationMedia($registrationID, $mediaID) {
   return $result;
   
 }
+
+function getTopicOfRegistration($registrationID) {
+  global $conn;
+  
+  $sql = "SELECT name FROM conversation_topic
+  INNER JOIN registration_conversation_topic ON conversation_topic.topicID = registration_conversation_topic.topicID
+  WHERE registration_conversation_topic.registrationID = $registrationID
+  LIMIT 3";
+
+  $result = $conn->query($sql);
+  
+  return $result;
+  
+}
+
+function getRegistration($id) {
+
+  global $conn;
+  
+  $sql = "SELECT * FROM registration  WHERE registrationID = $id";
+
+  $result = $conn->query($sql);
+  
+  return $result;
+}
+
+function getRegistrationForUser($id, $userID) {
+
+  global $conn;
+  
+  $sql = "SELECT * FROM registration  
+  WHERE registrationID = $id AND userID = $userID";
+
+  $result = $conn->query($sql);
+  
+  return $result;
+}
+
+
 
 ?>

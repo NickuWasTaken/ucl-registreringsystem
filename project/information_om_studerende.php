@@ -11,9 +11,6 @@ if ($_SESSION['userID'] != null) {
         <meta charset="UTF-8" />
         <link rel="icon" type="image/svg+xml" href="/vite.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Vite App</title>
-        <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/style.css">
     </head>
 
     <body>
@@ -22,7 +19,6 @@ if ($_SESSION['userID'] != null) {
             <h2>Type studerende</h2>
             <div id="site-gender">
                 <div class="gender-wrap flex">
-
                     <?php while ($result = mysqli_fetch_assoc($gender)) { ?>
                         <input type="radio" id="<?php echo $result['name']; ?>" name="gender" value="<?php echo $result['genderID']; ?>">
                         <label for="<?php echo $result['name']; ?>">
