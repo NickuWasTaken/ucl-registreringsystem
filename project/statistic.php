@@ -36,6 +36,7 @@ if (isset($_POST['nyBruger'])) {
     <link rel="stylesheet" href="css/_navigationsbar.css"> 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/_new-user.css">
+    <link rel="stylesheet" href="css/style2.css">
     <title>Opret Bruger</title>
 </head>
 
@@ -53,7 +54,7 @@ if (isset($_POST['nyBruger'])) {
     </div>
 
 </div>
-
+    <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="js/script2.js"></script>
     
 </body>
