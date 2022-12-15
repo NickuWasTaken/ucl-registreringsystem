@@ -12,6 +12,8 @@ include 'dbconn.php';
 
 $username = $_POST['username'];
 $password = $_POST['password'];
+$SALTHASH = "DEEPPINK#ff1493";
+// $password .= $SALTHASH
 
 $query= "SELECT userID, username, password, auth, fname, sname FROM users WHERE username='".$username."'";
 $result = $conn->query($query);

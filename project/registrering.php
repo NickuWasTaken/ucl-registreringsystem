@@ -88,8 +88,8 @@ if ($_SESSION['userID'] != null) {
                         <?php }?>
                     </div>
                 </div>
-                
-                <div id="site-main-next-page"> <!-- Rettet -->
+
+                <div id="site-main-next-page"> 
                     <div class="flex-wrapper flex">
                         <a style="opacity: 0.3; cursor: default;">
                             <div id="back" class="flex-wrapper">
@@ -113,8 +113,25 @@ if ($_SESSION['userID'] != null) {
         </html>
 
         <?php
-    }
+        if (isset($_GET['confirmed'])) {
+            if ($_GET['confirmed'] == 1) { ?>
+                <script src="js/functions.js" defer></script>
+                <div id="registretionAlertBox">
+                    <p id="registrationAlert" onclick="dissipate()">Registrering indsendt</p>
+                </div>
 
+            <?php }
+        }
+
+        if (isset($_GET['warning'])) {
+            if ($_GET['warning'] == 1) { ?>
+                <script src="js/functions.js" defer></script>
+                <div id="registretionAlertBox">
+                    <p id="registrationAlert" onclick="dissipate()">Der skete en fejl!</p>
+                </div>
+            <?php }
+        }
+    }
     else {
         header('location:login.php');
     }

@@ -4,7 +4,7 @@
         <li class="header"><img src="images/UCL_vertical.png" class="icontop"></li>
         <a href="index.php"><li><img src="images/task.png" class="iconside"><p>Registrering</p></li></a>
         <a href="backlog.php"><li><img src="images/log.png" class="iconside"><p>Registreringer</p></li></a>
-        <a href="#"><li><img src="images/statistics.png" class="iconside"><p>Statistik</p></li></a>
+        <a href="statistic.php"><li><img src="images/statistics.png" class="iconside"><p>Statistik</p></li></a>
         <?php if ($_SESSION['auth'] == 1) { ?>
          <a href="useroverview.php"><li><img src="images/add-user.png" class="iconside"><p>Brugere</p></li></a>
       <?php } ?>

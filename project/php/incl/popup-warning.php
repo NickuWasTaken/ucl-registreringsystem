@@ -6,7 +6,7 @@ if (isset($_GET['registrationID'])) {
 	$result = mysqli_fetch_assoc($registration);
 	$registrationTopics = getTopicOfRegistration($id);
 	?>
-
+	<head><meta charset="UTF-8"></head>
 	<section id="popup-warning">
 		<div class="content-window">
 			<h2 class="popup-title">Er du sikker på du vil slette:</h2>
@@ -19,7 +19,7 @@ if (isset($_GET['registrationID'])) {
 			</p>
 			<div class="button-wrap">
 				<a id="confirm" href="php/delete-action.php?registrationID=<?php echo $id; ?>">Jeg er sikker!</a>
-				<a id="decline" onclick="disablePopUp()">Nej, Annulér sletning</a>
+				<a id="decline" onclick="disablePopUp()">Nej, Annuler sletning</a>
 			</div>
 		</div>
 	</section>
@@ -38,7 +38,7 @@ if (isset($_GET['userID'])) {
 		$authentication = "Vejleder";
 	}
 	?>
-
+	<head><meta charset="UTF-8"></head>
 	<section id="popup-warning">
 		<div class="content-window">
 			<h2 class="popup-title">Er du sikker på du vil slette:</h2>
@@ -50,7 +50,7 @@ if (isset($_GET['userID'])) {
 			</p>
 			<div class="button-wrap">
 				<a id="confirm" href="php/delete-action.php?userID=<?php echo $id; ?>">Jeg er sikker!</a>
-				<a id="decline" onclick="disablePopUp()">Nej, Annulér sletning</a>
+				<a id="decline" onclick="disablePopUp()">Nej, Annuler sletning</a>
 			</div>
 		</div>
 	</section>

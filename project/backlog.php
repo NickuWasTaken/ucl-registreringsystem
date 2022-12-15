@@ -12,7 +12,6 @@ if ($_SESSION['userID'] != null) {
     
     if (isset($_GET['page'])) {
         $page = $_GET['page'];
-        echo "kek";
     } else {
         $page = 0;
     }

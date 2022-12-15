@@ -15,7 +15,7 @@ echo $_SESSION['userID'];
 
 <body>
 	<section class="wrapper">
-		<img src="images/UCL_horizontal.png" alt="UCL logo">
+		<img id="logo" src="images/UCL_horizontal.png" alt="UCL logo">
 		<form action="php/login-action.php" method="post">
 			<h2>Login</h2>
 			<input type="text" placeholder="E-mail" name="username" alt="">

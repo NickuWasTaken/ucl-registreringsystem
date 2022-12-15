@@ -83,7 +83,7 @@ function getUser($id) {
 
   global $conn;
   
-  $sql = "SELECT users.userID, users.fname, users.sname, department.name FROM users 
+  $sql = "SELECT users.userID, users.username, users.fname, users.sname, department.name FROM users 
   INNER JOIN users_has_department ON users.userID = users_has_department.userID 
   INNER JOIN department ON users_has_department.departmentID = department.departmentID
   WHERE users.userID = $id
@@ -142,6 +142,32 @@ function updateUser() {
   $sql = "UPDATE users
   SET username = $username, password = $password, fname = $fname, sname = $sname, initials = $initials, auth = $auth
   WHERE userID = $userID;";
+
+  $result = $conn->query($sql);
+  
+  return $result;
+}
+
+function checkUserPassword($userID) {
+
+  global $conn;
+  
+  $sql = "SELECT password 
+  FROM users
+  WHERE userID = $userID";
+
+  $result = $conn->query($sql);
+  
+  return $result;
+}
+
+function updateUserPassword($userID, $password) {
+
+  global $conn;
+
+  $sql = "UPDATE users 
+  SET `password` = '$password' 
+  WHERE userID = $userID";
 
   $result = $conn->query($sql);
   
@@ -327,6 +353,36 @@ function getRegistrationForUser($id, $userID) {
   return $result;
 }
 
+
+function d3jsData() {
+
+  global $conn;
+  
+  $sql = "SELECT topic_categories.name, conversation_topic.name, conversation_topic.topicID, COUNT(registration_conversation_topic.topicID) AS antal
+  FROM registration_conversation_topic
+  INNER JOIN conversation_topic ON registration_conversation_topic.topicID = conversation_topic.topicID
+  INNER JOIN topic_has_category ON conversation_topic.topicID = topic_has_category.topicID
+  INNER JOIN topic_categories ON topic_has_category.categoryID = topic_categories.categoryID
+  GROUP BY registration_conversation_topic.topicID";
+
+  $result = $conn->query($sql);
+  
+  return $result;
+}
+
+function categoryOfTopic() {
+
+  global $conn;
+  
+  $sql = "SELECT topic_categories.categoryID, conversation_topic.topicID
+  FROM conversation_topic
+  INNER JOIN topic_has_category ON conversation_topic.topicID = topic_has_category.topicID
+  INNER JOIN topic_categories ON topic_has_category.categoryID = topic_categories.categoryID";
+
+  $result = $conn->query($sql);
+  
+  return $result;
+}
 
 
 ?>

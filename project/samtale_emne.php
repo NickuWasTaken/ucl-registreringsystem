@@ -30,7 +30,7 @@ if ($_SESSION['userID'] != null) {
                     </div>
                 <?php } ?>
             </div>
-            <div id="site-main-next-page"> <!-- Rettet -->
+            <div id="site-main-next-page">
                 <div class="flex-wrapper flex">
                     <a onclick="swapFormLast(3)">
                         <div id="back" class="flex-wrapper">

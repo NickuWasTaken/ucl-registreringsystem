@@ -43,6 +43,7 @@
     width: 200px;
     height: 100%;
     top:0;
+    left: 0 !important;
     background: #143943;
     z-index: 2;
     

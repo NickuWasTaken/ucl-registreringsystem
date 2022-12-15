@@ -1,4 +1,7 @@
 <?php 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start(); 
 if ($_SESSION['userID'] != null && $_SESSION['auth'] == 1) {
     include 'php/functions.php';
@@ -37,10 +40,10 @@ if ($_SESSION['userID'] != null && $_SESSION['auth'] == 1) {
     <body>
 
         <section id="users">
-            <div class="heading">
+            <div class="heading flex jcsb aic">
                 <h1>Brugere</h1>
+                <a id="addUser" href="new_user.php"><p>Opret ny bruger</p> <img src="images/addition.png" alt=""></a>
             </div>
-
 
             <?php 
             while ($result = mysqli_fetch_assoc($getUsers)) { 

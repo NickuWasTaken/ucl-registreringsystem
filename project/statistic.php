@@ -1,29 +1,18 @@
 <?php 
 session_start(); 
 include 'php/functions.php';
-$userDepartments = getAllDepartments();
+$categoryOfTopic = categoryOfTopic();
 
-if (isset($_POST['nyBruger'])) {
-    $departmentID = $_POST['department'];
-    $allEducations = $_POST['education'];
-    $fname = $_POST['fname'];
-    $sname = $_POST['sname'];
-    $username = $_POST['email'];
-
-    createUser($fname, $sname, $username);
-    $latestUser = mysqli_fetch_assoc(getLatestUser());
-    createUserDepartment($latestUser['userID'], $departmentID);
-
-   // !!!!!Ved ikke helt hvordan dette skal løses kig på til evolution!!!!! JS med checkboxe?
-   //
-   // foreach($allEducations as $education){
-   //     createUserEducations($latestUser['userID'], $educationID);
-   // }
-
-    header('location:useroverview.php');
-    die;
-}
 ?>
+<script>
+    let dataLabels = {
+        <?php while($topicdata = mysqli_fetch_assoc($categoryOfTopic)){
+            echo $topicdata['topicID'].": ".$topicdata['categoryID'];
+            echo ", ";
+        } ?>
+    }
+    console.log(dataLabels);
+</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +24,6 @@ if (isset($_POST['nyBruger'])) {
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/_navigationsbar.css"> 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/_new-user.css">
     <link rel="stylesheet" href="css/style2.css">
     <title>Opret Bruger</title>
 </head>
@@ -44,19 +32,47 @@ if (isset($_POST['nyBruger'])) {
 
 <body>
     <div id="site-main">
-            <div id="app">
-        <div id="chart">
-            <svg></svg>
-        </div>
-        <div id="data">
-            <ul></ul>
-        </div>
-    </div>
+        <h1>Statistik</h1>
+        <div id="app">
+            <div id="chart">
+                <svg></svg>
+            </div>
 
-</div>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="js/script2.js"></script>
-    
-</body>
+            <div id="overview">
+                <div class="flex">
+                    <span id="admin" onclick="statisticShowAdmin()">
+                        <p>Administration</p>
+                    </span>
 
-</html>
+                    <span id="economy" onclick="statisticShowEconomy()">
+                        <p>Økonomi</p>
+                    </span>
+
+                    <span id="personal" onclick="statisticShowPersonal()">
+                        <p>Personlig</p>
+                    </span>
+                </div>
+
+                <div id="checks">
+                    <a onclick='uncheckAll()' value= "Unchecks All"/>Fravælg alle</a>
+                    <a onclick='checkAll()' value= "Checks All"/>Tilvælg alle</a></div>
+                </div>
+
+                <div id="data">
+                    <ul></ul>
+                </div>
+
+            </div>
+
+        </div>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <?php include 'php/d3.php'; ?>
+        <script src="js/functions.js"></script>
+        <script>
+            document.getElementById('admin').click();
+        </script>
+
+
+    </body>
+
+    </html>
