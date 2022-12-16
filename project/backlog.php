@@ -3,6 +3,7 @@ session_start();
 if ($_SESSION['userID'] != null) {
     include 'php/functions.php';
 
+    // for at lave pop-up med en advarsel ved sletning 
     if (isset($_GET['deleteWarning'])) {
         if ($_GET['deleteWarning'] == 1){
             $id = $_GET['registrationID'];

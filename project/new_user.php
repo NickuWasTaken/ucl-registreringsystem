@@ -3,6 +3,7 @@ session_start();
 include 'php/functions.php';
 $userDepartments = getAllDepartments();
 
+// oprettelse af ny bruger
 if (isset($_POST['nyBruger'])) {
     $departmentID = $_POST['department'];
     $allEducations = $_POST['education'];
@@ -13,12 +14,6 @@ if (isset($_POST['nyBruger'])) {
     createUser($fname, $sname, $username);
     $latestUser = mysqli_fetch_assoc(getLatestUser());
     createUserDepartment($latestUser['userID'], $departmentID);
-
-   // !!!!!Ved ikke helt hvordan dette skal løses kig på til evolution!!!!! JS med checkboxe?
-   //
-   // foreach($allEducations as $education){
-   //     createUserEducations($latestUser['userID'], $educationID);
-   // }
 
     header('location:useroverview.php');
     die;

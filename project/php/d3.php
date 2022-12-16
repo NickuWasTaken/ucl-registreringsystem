@@ -4,6 +4,7 @@ $count = 0;
 ?>
 
 <script defer>	
+// data i søjledigram 
 	const myData = [
 		<?php while($data = $d3data->fetch_object()){
 			$count++;
@@ -52,11 +53,7 @@ $count = 0;
 		.attr('transform', `translate(${margins.horizontal+20}, 5)`)
 		.attr('color', '#143943');
 
-    // chart
-    //   .selectAll('.bar')
-    //   .data(chartData, d => d.id)
-    //   .exit()
-    //   .remove();
+
 
 		chart.selectAll('.bar').remove();
 
@@ -71,11 +68,6 @@ $count = 0;
 		.attr('x', d => x(d.region))
 		.attr('y', d => y(d.value) + 5);
 
-    // chart
-    //   .selectAll('.label')
-    //   .data(chartData, d => d.id)
-    //   .exit()
-    //   .remove();
 
 		chart.selectAll('.label').remove();
 
@@ -100,7 +92,7 @@ $count = 0;
 	.enter()
 	.append('li')
 
-	
+	// ved label fjernet bliver tilsvarende søjle fjernet 
 	listItems
 	.append('input')
 	.attr('type', 'checkbox')

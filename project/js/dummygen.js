@@ -1,3 +1,4 @@
+// Brugt til at indsætte dummy data i databasen 
 /*
 for (var i = 1; i <= 20; i++) {
 	let randomBit = Math.round(Math.random());
