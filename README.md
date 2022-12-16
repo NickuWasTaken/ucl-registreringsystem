@@ -9,7 +9,7 @@ For at anvende eller teste produktet skal gyldigt login benyttes på følgende u
 <a href="https://nicku.dk/ucl-registreringsystem/project">https://nicku.dk/ucl-registreringsystem/project/</a> <br> <br>
 
 Ved test af oprettelse af nye brugere, skal der anvendes en aktuelle emails da brugeren der bliver oprettet vil få sendt en email til at oprette deres nye kode. <br>
-:exclaimation: **OBS da den inye bruger ikke vil have tilknyttet nogle studieretninger, vil registrerings systemet ikke virke**
+:exclamation: **OBS da den inye bruger ikke vil have tilknyttet nogle studieretninger, vil registrerings systemet ikke virke**
 
 ## Mangler i systemet:
 **Der er få mangler i systemet som ikke virker efter hensigt. Disse funktioner er:**<br>
