@@ -1,7 +1,4 @@
 <?php 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 session_start(); 
 if ($_SESSION['userID'] != null && $_SESSION['auth'] == 1) {
     include 'php/functions.php';
@@ -19,8 +16,6 @@ if ($_SESSION['userID'] != null && $_SESSION['auth'] == 1) {
     } else {
         $page = 0;
     }
-    
-    include 'navigationsbar.php';
 
     $getUsers = getAllUsers();
     ?>
@@ -30,7 +25,7 @@ if ($_SESSION['userID'] != null && $_SESSION['auth'] == 1) {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Backlog</title>
+        <title>Brugere</title>
         <link rel="icon" type="image/x-icon" href="images/favicon-32x32.webp">
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
@@ -40,6 +35,8 @@ if ($_SESSION['userID'] != null && $_SESSION['auth'] == 1) {
         <script src="js/functions.js" defer async></script>
     </head>
     <body>
+
+        <?php include 'navigationsbar.php'; ?>
 
         <section id="users">
             <div class="heading flex jcsb aic">

@@ -15,8 +15,6 @@ if ($_SESSION['userID'] != null) {
     } else {
         $page = 0;
     }
-    
-    include 'navigationsbar.php';
 
     $userRegistrations = getRegistrationsForUser($_SESSION['userID'],$page);
     ?>
@@ -36,6 +34,8 @@ if ($_SESSION['userID'] != null) {
         <script src="js/functions.js" defer async></script>
     </head>
     <body>
+
+        <?php     include 'navigationsbar.php'; ?>
 
         <section id="backlog">
             <div class="heading">
