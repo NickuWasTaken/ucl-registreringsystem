@@ -20,7 +20,7 @@ echo $_SESSION['userID'];
 			<h2>Login</h2>
 			<input type="text" placeholder="E-mail" name="username" alt="">
 			<input type="password" placeholder="Kodeord" name="password">
-			<div class="input-align"><a href="">Glemt kodeord?</a></div>
+			<div class="input-align"><a href="forgot-password.php">Glemt kodeord?</a></div>
 			<input type="submit" value="Login" name="login">
 		</form>
 	</div>

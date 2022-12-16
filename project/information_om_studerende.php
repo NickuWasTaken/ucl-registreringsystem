@@ -30,16 +30,23 @@ if ($_SESSION['userID'] != null) {
 
                 <div class="flex">
                     <h2>Status</h2>
-                    <h2 class="right">Nationalitet</h2>
+                    <h2 class="right">Nationalitet 
+                        <a class="tooltip">
+                            <img src="images/question_mark.png">
+                            <div class="container">
+                                <span class="tooltiptext">Definationen af dansk, er at den studerende har studeret i Danmark, i mere end et år.</span>
+                            </div>
+                        </a>
+                    </h2>
                 </div>
                 <div class="wrap flex">
                     <div class="status-wrap">
                         <div class="status-wrap">
                             <input type="radio" id="state1" name="status" checked value="1">
-                            <label for="state1">Nuværende elev</label>
+                            <label for="state1">Nuværende Studerende</label>
 
                             <input type="radio" id="state2" name="status" value="0">
-                            <label for="state2">Potentiel elev</label>
+                            <label for="state2">Potentiel Studerende</label>
                         </div>
                     </div>
 

@@ -126,3 +126,33 @@ b {
 	right: 2vw;
 	cursor: pointer;
 }
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+}
+
+.tooltip img{
+	height: 18px;
+	position: relative;
+	display: inline-block;
+}
+
+.tooltiptext {
+	visibility: hidden;
+	width: 320px;
+	background-color: #FEF486;
+	color: #4A737D;
+	text-align:left;
+	border-radius: 10px;
+	border: #F2F8F8 solid 4px;
+	padding: 15px;
+	position: absolute;
+	z-index: 1;
+	font-size: 18px;
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+	transform: translate(-20px, -120px);
+}

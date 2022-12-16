@@ -1,5 +1,6 @@
 <?php 
 include 'php/dbconn.php';
+setlocale(LC_TIME, array('da_DA.UTF-8','da_DA@euro','da_DA','danish'));
 
 function getAllDepartments() {
 
@@ -378,6 +379,32 @@ function categoryOfTopic() {
   FROM conversation_topic
   INNER JOIN topic_has_category ON conversation_topic.topicID = topic_has_category.topicID
   INNER JOIN topic_categories ON topic_has_category.categoryID = topic_categories.categoryID";
+
+  $result = $conn->query($sql);
+  
+  return $result;
+}
+
+function getUserByUsername($username) {
+
+  global $conn;
+
+  $sql = "SELECT users.userID, users.username, users.fname FROM users 
+  WHERE users.username = '$username'";
+
+  $result = $conn->query($sql);
+  
+  return $result;
+
+}
+
+function deleteUserPassword($username) {
+
+  global $conn;
+
+  $sql = "UPDATE `users` 
+  SET `password` = NULL 
+  WHERE `users`.`username` = '$username'";
 
   $result = $conn->query($sql);
   

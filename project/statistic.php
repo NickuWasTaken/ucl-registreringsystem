@@ -24,7 +24,7 @@ $categoryOfTopic = categoryOfTopic();
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/_navigationsbar.css"> 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/_statistics.css">
     <title>Opret Bruger</title>
 </head>
 

@@ -11,7 +11,6 @@ if (!isset($_SESSION['userID'])) {
 	die;
 }
 
-// henter information til registrering 
 include 'php/functions.php';
 
 $departmentID = $_POST['campus'];
