@@ -4,7 +4,7 @@ $count = 0;
 ?>
 
 <script defer>	
-// data i søjledigram 
+// data i søjlediagram 
 	const myData = [
 		<?php while($data = $d3data->fetch_object()){
 			$count++;
