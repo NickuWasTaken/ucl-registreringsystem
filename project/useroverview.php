@@ -6,6 +6,7 @@ session_start();
 if ($_SESSION['userID'] != null && $_SESSION['auth'] == 1) {
     include 'php/functions.php';
 
+     // for at lave popup der advar ved sletning  
     if (isset($_GET['deleteWarning'])) {
         if ($_GET['deleteWarning'] == 1){
             $id = $_GET['userID'];

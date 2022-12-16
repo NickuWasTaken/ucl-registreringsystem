@@ -2,10 +2,6 @@ html {
     font-family: sans-serif;
 }
 
-body {
-
-}
-
 #app {
     display: flex;
     flex-wrap: wrap;
@@ -23,7 +19,6 @@ body {
 #data {
     display: flex;
     align-items: center;
-
     width: 100%;
 }
 
@@ -31,7 +26,6 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
-
     display: flex;
     flex-wrap: wrap;
     width: 50vw;
@@ -40,20 +34,18 @@ body {
     height: 175px;
 }
 
-#data label{
+#data label {
     margin: 0 15px;
 }
 
-svg g g:first-child{
+svg g g:first-child {
     display: block;
     margin-top: -40px;
     transform: translate(0px, 325px);
 }
 
-
-
-svg g g:first-child g.tick text{
-    transform: translate(-7px)rotate(-35deg) ;
+svg g g:first-child g.tick text {
+    transform: translate(-7px)rotate(-35deg);
     text-anchor: end;
     font-size: 12px;
 }
@@ -61,7 +53,7 @@ svg g g:first-child g.tick text{
 #data li label {
     margin-bottom: 1rem;
     padding: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26); 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     min-width: 125px;
     height: 34px;
     text-align: center;
@@ -73,21 +65,21 @@ svg g g:first-child g.tick text{
     color: white;
 }
 
-#data li input[type=checkbox]{
+#data li input[type=checkbox] {
     display: none;
 }
 
-#data li input[type=checkbox]:checked+label{
+#data li input[type=checkbox]:checked+label {
     background-color: #4FB2AD !important;
 }
 
-#overview{
+#overview {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-#overview a{
+#overview a {
     background-color: #FEF486;
     margin-left: 15px;
     padding: 10px 15px;
@@ -99,11 +91,13 @@ svg g g:first-child g.tick text{
     cursor: pointer;
 }
 
-#overview #checks{
+#overview #checks {
     display: flex;
 }
 
-#admin, #economy, #personal{
+#admin,
+#economy,
+#personal {
     width: 180px;
     height: 40px;
     display: inline-block;
