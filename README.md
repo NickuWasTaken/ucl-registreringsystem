@@ -1,5 +1,4 @@
 # Registrerings system udviklet til UCL Odense
-
 Dette projekt er udviklet for University College Lillebælt. <br>
 Projektet er tilegnet UCL's studievejledere, og er udviklet for at hjælpe 
 studievejlederne med at registrere deres samtaler, på en mere intuitiv måde. <br>
@@ -17,7 +16,6 @@ Tilføjelse af studieretning ved oprettelse af en ny vejleder.<br>
 Søgefunktionen til at gennemse studieretninger når vejlederen indregistrere en samtale.<br>
 Mulighed for at redigere nuværende registreringer<br>
 Mulighed for at redigere nuværende brugere<br>
-
 
 ## Udviklet af:
 **Udviklere af projektet:** <br>

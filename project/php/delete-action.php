@@ -1,10 +1,6 @@
 <?php 
 session_start();
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
+// checker om brugeren er adminstrator ved brugerslettelse.
 if (isset($_GET['userID']) && $_SESSION['auth']==1) {
 
 	if (!isset($_SESSION['userID'])) {
@@ -18,6 +14,7 @@ if (isset($_GET['userID']) && $_SESSION['auth']==1) {
 
 	$id = $_GET['userID'];
 
+	//Sikre sig brugeren ike kan slette sig selv, ved at sammenligne sessions brugeren og brugeren der skal slettes. Validering I tilfælde af URL tilgang.
 	if ($_SESSION['userID' != $id]) {
 		if (deleteUser($id)) {
 			deleteUser($id);
@@ -27,8 +24,8 @@ if (isset($_GET['userID']) && $_SESSION['auth']==1) {
 	}
 }
 
+// Checker om der er medsendt en ID, hvorefter der checkes om en bruger er logget ind i tilfælde af tilgang via URL
 if (isset($_GET['registrationID'])) {
-
 	if (!isset($_SESSION['userID'])) {
 		session_destroy();
 		header('location:../login.php');
@@ -38,6 +35,7 @@ if (isset($_GET['registrationID'])) {
 	include 'dbconn.php';
 	include 'functions.php';
 
+// henter den medsendte ID, bruger ID'en til at checke om registreringen existere i databasen og checker om den er oprettet af brugeren der er logget ind.
 	$id = $_GET['registrationID'];
 	$registration = getRegistrationForUser($id, $_SESSION['userID']);
 	if ($result = mysqli_fetch_assoc($registration)) {
