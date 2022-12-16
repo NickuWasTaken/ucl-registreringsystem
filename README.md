@@ -1,15 +1,15 @@
 # Registrerings system udviklet til UCL Odense
 
-Dette projekt er udviklet for University College Lillebælt.
-Projektet er tilegnet UCL's studievejledere og er udviklet for at hjælpe 
-studievejlederne med at registrere deres samtaler på en mere intuitiv måde. <br>
+Dette projekt er udviklet for University College Lillebælt. <br>
+Projektet er tilegnet UCL's studievejledere, og er udviklet for at hjælpe 
+studievejlederne med at registrere deres samtaler, på en mere intuitiv måde. <br>
 
 ## Instruksioner til andvendelse af system:
 For at anvende eller teste produktet skal gyldigt login benyttes på følgende url: <br>
 <a href="https://nicku.dk/ucl-registreringsystem/project">https://nicku.dk/ucl-registreringsystem/project/</a> <br> <br>
 
 Ved test af oprettelse af nye brugere, skal der anvendes aktuelle emails da brugeren der bliver oprettet vil få sendt en email til at oprette deres nye kode. <br><br>
-:exclamation: **OBS da den nye bruger ikke vil have tilknyttet nogle studieretninger, vil registrerings systemet ikke virke**
+:exclamation: **OBS da den nye bruger ikke vil have tilknyttet nogle studieretninger, vil registrerings systemet ikke virke.**
 
 ## Mangler i systemet:
 **Der er få mangler i systemet som ikke virker efter hensigt. Disse funktioner er:**<br>

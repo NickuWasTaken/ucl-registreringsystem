@@ -19,7 +19,7 @@ include 'php/functions.php';
 			<img id="logo" src="images/UCL_horizontal.png" alt="UCL logo">
 			<form action="" method="post">
 				<h2>Glemt dit kodeord?</h2>
-				<h3>Venligt indtast din email neden under, så sender vi et nyt!</h3>
+				<h3>Indtast din e-mailadresse nedenfor, og så <br>sender vi dig en e-mail med instruktioner til, <br>hvordan du opretter en ny adgangskode</h3>
 				<input type="email" placeholder="Email" name="email" required> <br>
 				<input type="submit" value="Nulstil kodeord" name="SendMail">
 			</form>
