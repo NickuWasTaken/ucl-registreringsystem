@@ -15,7 +15,17 @@ if (isset($_POST['nyBruger'])) {
     $latestUser = mysqli_fetch_assoc(getLatestUser());
     createUserDepartment($latestUser['userID'], $departmentID);
 
+<<<<<<< Updated upstream
     header('location:useroverview.php');
+=======
+   // !!!!!Ved ikke helt hvordan dette skal løses kig på til evolution!!!!! JS med checkboxe? - Nicklas
+   //
+   // foreach($allEducations as $education){
+   //     createUserEducations($latestUser['userID'], $educationID);
+   // }
+
+    header('location:sendMail.php?userID='.$latestUser['userID']);
+>>>>>>> Stashed changes
     die;
 }
 ?>
