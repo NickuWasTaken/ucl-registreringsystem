@@ -4,6 +4,7 @@ $count = 0;
 ?>
 
 <script defer>	
+// data i søjlediagram 
 	const myData = [
 		<?php while($data = $d3data->fetch_object()){
 			$count++;
@@ -100,7 +101,7 @@ $count = 0;
 	.enter()
 	.append('li')
 
-	
+	// ved label fjernet bliver tilsvarende søjle fjernet 
 	listItems
 	.append('input')
 	.attr('type', 'checkbox')

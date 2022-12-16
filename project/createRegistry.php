@@ -12,7 +12,7 @@ if (!isset($_SESSION['userID'])) {
 }
 
 include 'php/functions.php';
-
+// henter information til registrering 
 $departmentID = $_POST['campus'];
 $educationID = $_POST['education'];
 $resident = $_POST['nationality'];
